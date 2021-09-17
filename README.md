@@ -12,7 +12,7 @@ wget https://github.com/luca1197/gmad-build/releases/download/latest/gmad_linux
 
 `curl`
 ```
-curl https://github.com/luca1197/gmad-build/releases/download/latest/gmad_linux -o gmad_linux
+curl -LJO https://github.com/luca1197/gmad-build/releases/download/latest/gmad_linux
 ```
 
 ### Credits
