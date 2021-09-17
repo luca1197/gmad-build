@@ -20,9 +20,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git submodule foreach git pull origin master
           git add .
-          git commit -m "Update submodules"
-          git push origin master
-          exit 0
+          (git commit -m "Update submodules") && (git push origin master) || true
 
       - name: Install premake4
         run: |
