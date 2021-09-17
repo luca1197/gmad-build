@@ -1,5 +1,5 @@
 # 🏗️ gmad-build
-A weekly build of [https://github.com/Facepunch/gmad](Facepunch/gmad).
+A weekly Linux build of [https://github.com/Facepunch/gmad](Facepunch/gmad).
 
 ## Usage
 
