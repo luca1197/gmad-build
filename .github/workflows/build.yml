@@ -22,6 +22,7 @@ jobs:
           git add .
           git commit -m "Update submodules"
           git push origin master
+          exit 0
 
       - name: Install premake4
         run: |
