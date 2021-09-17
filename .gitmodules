@@ -1,0 +1,6 @@
+[submodule "gmad"]
+	path = gmad
+	url = https://github.com/Facepunch/gmad
+[submodule "bootil"]
+	path = bootil
+	url = https://github.com/garrynewman/bootil
