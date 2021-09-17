@@ -1,5 +1,5 @@
 # 🏗️ gmad-build
-A weekly Linux build of [https://github.com/Facepunch/gmad](Facepunch/gmad).
+A weekly Linux build of [Facepunch/gmad](https://github.com/Facepunch/gmad).
 
 ## Usage
 
@@ -16,4 +16,4 @@ curl https://github.com/luca1197/gmad-build/releases/download/latest/gmad_linux 
 ```
 
 ### Credits
-❤️ Inspired by [https://github.com/AbigailBuccaneer/gmad-build](AbigailBuccaneer/gmad-build)
+❤️ Inspired by [AbigailBuccaneer/gmad-build](https://github.com/AbigailBuccaneer/gmad-build)
