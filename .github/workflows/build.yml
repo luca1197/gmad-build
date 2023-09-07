@@ -8,9 +8,13 @@ on:
 jobs:
   build-release:
     runs-on: ubuntu-latest
+
+    permissions: 
+      contents: write # Required to create release
+
     steps:
       - name: "Checkout repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
 
@@ -38,7 +42,7 @@ jobs:
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.RELEASE_TOKEN }}"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           automatic_release_tag: "latest"
           title: "gmad_linux build"
