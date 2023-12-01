@@ -22,7 +22,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git submodule foreach git fetch origin master && git reset --hard FETCH_HEAD && git clean -df
+          git submodule foreach "git fetch origin master && git reset --hard FETCH_HEAD && git clean -df"
           git add .
           (git commit -m "Update submodules") && (git push origin master) || true
 
