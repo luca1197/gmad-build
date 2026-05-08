@@ -48,8 +48,11 @@ jobs:
           make -j4
           ./gmad_linux --help >/dev/null
       
-      - name: Set release date
-        run: echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
+      - name: Set release metadata
+        run: |
+          echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
+          echo "BOOTIL_SHA=$(git -C bootil rev-parse HEAD)" >> "$GITHUB_ENV"
+          echo "GMAD_SHA=$(git -C gmad rev-parse HEAD)" >> "$GITHUB_ENV"
 
       - name: Create dated release
         if: github.event_name == 'schedule'
@@ -68,8 +71,15 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           tag_name: "latest"
-          name: "gmad_linux build"
+          name: "gmad_linux build (${{ env.RELEASE_DATE }})"
           prerelease: false
           generate_release_notes: false
           make_latest: true
+          body: |
+            Built on ${{ env.RELEASE_DATE }}
+
+            | Submodule | Commit |
+            |-----------|--------|
+            | [bootil](https://github.com/garrynewman/bootil) | [${{ env.BOOTIL_SHA }}](https://github.com/garrynewman/bootil/commit/${{ env.BOOTIL_SHA }}) |
+            | [gmad](https://github.com/Facepunch/gmad) | [${{ env.GMAD_SHA }}](https://github.com/Facepunch/gmad/commit/${{ env.GMAD_SHA }}) |
           files: gmad/gmad_linux
