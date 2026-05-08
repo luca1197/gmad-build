@@ -66,6 +66,14 @@ jobs:
           make_latest: false
           files: gmad/gmad_linux
 
+      - name: Reset latest tag and release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --yes || true
+          git tag -f latest
+          git push origin latest --force
+
       - name: Update latest release
         uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
         with:
